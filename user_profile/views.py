@@ -23,12 +23,18 @@ def login_view(request):
         elif len(password) > 6 and user==None:
             messages.warning(request,f"Bir şeyler yanlış görünüyor!")
 
+    return render(request,"user_profile/login.html",context)
       
 
 
-    return render(request,"user_profile/login.html",context)
 
 def logout_view(request):
     messages.info(request,f" Heey! {request.user.username} Oturumun Sonlandı")
     logout(request)
     return redirect("/")
+
+def register_view(request):
+    context=dict()
+    if request.method == "POST":
+        print(request.POST)
+    return render(request,"user_profile/register.html",context)
