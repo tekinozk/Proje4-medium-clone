@@ -38,7 +38,7 @@ BASE_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-MY_APPS=['page']
+MY_APPS=['page','user_profile',]
 THIRD_PARTY_APPS=[]
 
 INSTALLED_APPS = BASE_APPS + MY_APPS + THIRD_PARTY_APPS
@@ -134,6 +134,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #YAPILACAKLAR ::: 
 #TODO:LOGIN
+#TODO:LOGOUT
 #TODO:SIGN UP
 #TODO:RESET PASSWORD
 #TODO:USER AVATAR,INSTA ACCOUNT , USER_SLUG ( FIRS - LAST NAME)
