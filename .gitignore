@@ -12,3 +12,5 @@ config/__pycache__/urls.cpython-311.pyc
 config/__pycache__/wsgi.cpython-311.pyc
 config/__pycache__/settings.cpython-311.pyc
 config/__pycache__/settings.cpython-311.pyc
+user_profile/__pycache__/urls.cpython-311.pyc
+user_profile/__pycache__/views.cpython-311.pyc
