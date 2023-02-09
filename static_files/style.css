@@ -1,0 +1,27 @@
+.op-02 {
+    opacity: 0.2;
+}
+
+.op-04 {
+    opacity: 0.4;
+}
+
+.fs-12 {
+    font-size: 12px;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+.bg{
+    background: #aa4b6b;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #3b8d99, #6b6b83, #aa4b6b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+body{
+    background: #EEEEEE;
+    background: linear-gradient(90deg, #EEEEEE 0%, #FCEAF9 80%);
+    background: -webkit-linear-gradient(90deg, #EEEEEE 0%, #FCEAF9 80%);
+    background: -moz-linear-gradient(90deg, #EEEEEE 0%, #FCEAF9 80%);
+}
