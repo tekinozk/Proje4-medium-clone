@@ -16,6 +16,10 @@ def login_view(request):
         print(user)
         if user is not None:
             login(request,user)
+            messages.success(request,f" Heey! {request.user.username} Hoşgeldin!")
             return redirect("home_view")
+        else:
+            messages.warning(request,f" Heey! {request.user.username} Bir şeyler yanlış görünüyor!")
+
 
     return render(request,"user_profile/login.html",context)
