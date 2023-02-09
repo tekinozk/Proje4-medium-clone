@@ -1,8 +1,9 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
-
+from user_profile.models import Profile
 from django.contrib import messages
+from slugify import slugify
 
 def login_view(request):
     # login olan user direkt olarak anasayfaya gidebilmeli
@@ -58,13 +59,27 @@ def register_view(request):
 
         user,created = User.objects.get_or_create(username=email)
         if not created:
-            user = authenticate(request,username=email,password=password)
+            user_login = authenticate(request,username=email,password=password)
             if user is not None:
                 messages.warning(request,"Daha önce kayıt olmuşsunuz... Ana Sayfaya Yönlendirildiniz...")
-                login(request,user)
+                login(request,user_login)
                 return redirect("/")
-        messages.warning(request,"Bu e-posta adresi zaten kayıtlı...")
-        return redirect ("user:login_view")
+            messages.warning(request,"Bu e-posta adresi zaten kayıtlı...")
+            return redirect ("user:login_view")
+        user.email= email
+        user.first_name = first_name
+        user.last_name =  last_name
+        user.set_password(password)
+
+        profile , profile_created = Profile.objects.get_or_create(user=user)
+        profile.twitter = twitter
+        profile.slug = slugify(f"{first_name}-{last_name}")
+        user.save()
+        profile.save()     
+        messages.success(request,f"{user.first_name.title()} Kayıt Başarılı...")
+        user_login = authenticate(request,username=email,password=password)
+        login(request,user_login)
+        return redirect('/')
 
     return render(request,"user_profile/register.html",context)
             
